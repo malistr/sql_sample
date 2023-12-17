@@ -1,0 +1,41 @@
+--1-)SELECT CategoryName, Description
+--FROM Categories 
+--Order By CategoryName
+--2-)SELECT ContactName, CompanyName, ContactTitle, Phone
+--FROM  Customers
+--Order By Phone 
+--3-)SELECT FirstName,LastName , HireDate
+--FROM Employees
+--Order By HireDate DESC --Desc yeniden eskiye doğru sıralamak için kullanılır.
+--4-)SELECT OrderID, OrderDate, ShippedDate, CustomerID, Freight
+--FROM Orders
+--Order By Freight DESC
+--5-) 4ün aynısı ama ASC yani eskiden yeniye, azdan çoğa sıralama
+--6-)SELECT CompanyName,ContactName
+--FROM Customers
+--WHERE City = 'Buenos Aires'--Sql'de where ifadesi sorguya koşul belirtmek için kullanılmaktadır.
+--SELECT CompanyName,ContactName
+--FROM Customers
+--WHERE City LIKE 'Buenos Aires' 6'ya Alternatif olarak eşittir yerine LIKE kullanılabilir. LIKE:LIKE komutu bir ifadenin içerisinde istediğimiz değerin olup olmadığını kontrol etmemize yarıyor.
+--SELECT CompanyName,ContactName
+--FROM Customers
+--WHERE City IN ('Buenos Aires') 6'ya Alternatif olarak eşittir yerine IN kullanılabilir.Where şartı ifadesinin içerisinde birden fazla değeri,kriteri koşul olarak seçmek istiyorsak IN anahtar kelimesi kullanılır.
+--7-)SELECT ProductName, UnitPrice, QuantityPerUnit,UnitsInStock
+--FROM Products
+--WHERE UnitsInStock =0
+--8-)SELECT OrderDate, ShippedDate, CustomerId, Freight 
+--FROM Orders
+--WHERE OrderDate = '1997-05-19 00:00:00.000'
+--SELECT OrderDate, ShippedDate, CustomerId, Freight 
+--FROM Orders
+--WHERE YEAR (OrderDate)=1997 AND MONTH(OrderDate)=5 AND DAY (OrderDate)=19 8'e alternatif olarak bu methodlar kullanılarak tarih işlemleri yapılabilir.Between kullanılarak ... yılları arasında gibi bir sorgu atılabilir.
+--9-)SELECT FirstName,LastName,Country 
+--FROM Employees
+--WHERE Country != 'Uk'
+--SELECT * FROM Products 
+--WHERE SupplierID IN (SELECT SupplierID FROM Suppliers WHERE CompanyName IN ('Tokyo Traders' , 'Exotic Liquids'))
+--Inner Join: INNER JOIN anahtarı, her iki tablodaki eşleşen değerlere sahip verileri seçer. Her iki kümede ortak olan dataları getiriyor. Join yazarakta kullanabiliriz.
+--SELECT p.ProductName AS 'Urun Adi', p.ProductID AS 'Urun ID',
+--s.CompanyName AS 'Tedarikci Firma' FROM Products p JOIN Suppliers s  On p.SupplierID=s.SupplierID
+--WHERE p.SupplierID IN
+--(SELECT SupplierID From Suppliers WHERE CompanyName LIKE'Tokyo Traders' OR CompanyName LIKE  'Exotic Liquids') 
