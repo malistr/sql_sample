@@ -32,10 +32,23 @@
 --9-)SELECT FirstName,LastName,Country 
 --FROM Employees
 --WHERE Country != 'Uk'
---SELECT * FROM Products 
+--19-)SELECT * FROM Products 
 --WHERE SupplierID IN (SELECT SupplierID FROM Suppliers WHERE CompanyName IN ('Tokyo Traders' , 'Exotic Liquids'))
 --Inner Join: INNER JOIN anahtarı, her iki tablodaki eşleşen değerlere sahip verileri seçer. Her iki kümede ortak olan dataları getiriyor. Join yazarakta kullanabiliriz.
 --SELECT p.ProductName AS 'Urun Adi', p.ProductID AS 'Urun ID',
 --s.CompanyName AS 'Tedarikci Firma' FROM Products p JOIN Suppliers s  On p.SupplierID=s.SupplierID
 --WHERE p.SupplierID IN
 --(SELECT SupplierID From Suppliers WHERE CompanyName LIKE'Tokyo Traders' OR CompanyName LIKE  'Exotic Liquids') 
+--24-)SELECT FirstName+' '+LastName+' can be reached at x'+Extension+'.' AS ContactInfo,Country FROM Employees
+--28-)SELECT Lower(ContactTitle) FROm Customers --Tüm harfleri küçültmek için Lower() kullanılır.
+--34-)SELECT TOP(3) p.ProductName,SUM(od.Quantity) AS TotalUnits
+--FROM Products p JOIN [Order Details] od ON p.ProductID=od.ProductID
+ --GROUP BY p.ProductName
+ --HAVING SUM(od.Quantity)<200,, İlgili kolona verilen topla, saydır, MAX-MIN gibi fonksiyonlara filtre verilmek isteniyorsa HAVING kullanılır.
+--35-)SELECT CompanyName, COUNT(o.CustomerID) AS NumOrders
+--FROM Customers c JOIN Orders o
+--ON c.CustomerID = o.CustomerID 
+--WHERE o.OrderDate>'1996-12-31'
+--GROUP BY c.CompanyName 
+--HAVING COUNT(o.ShipCity)>15 -- Count sorgu tarafından döndürülen kayıtların sayısını hesaplar
+
